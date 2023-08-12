@@ -1,0 +1,22 @@
+local Thread1 = coroutine.create(function()
+local args = {
+    [1] = {
+        ["value"] = true,
+        ["TrValue"] = false
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("onREvent"):FireServer(unpack(args))
+
+end)
+
+coroutine.resume(Thread1)
+
+local args = {
+    [1] = {
+        ["value"] = false
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("AscendEvent"):FireServer(unpack(args))
+
